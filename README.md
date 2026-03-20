@@ -60,3 +60,19 @@ Le workflow est dans `.github/workflows/windows-exe.yml`.
    git push origin v0.1.0
    ```
 2. Le workflow build l'app Windows puis publie automatiquement les fichiers `.exe`/`.msi` dans la **GitHub Release** du tag.
+
+
+## Résoudre rapidement les conflits PR
+
+Si GitHub indique des conflits sur les pages feature (`DashboardPage`, `ServersPage`, `SshPage`, etc.), tu peux utiliser le script:
+
+```bash
+./scripts/resolve-pr-conflicts.sh origin/main
+```
+
+Par défaut il garde **ta version courante** (`--ours`) sur les fichiers conflictuels connus de Hexa-Control.
+Si tu veux forcer la version entrante, utilise:
+
+```bash
+./scripts/resolve-pr-conflicts.sh origin/main --theirs
+```
