@@ -40,3 +40,23 @@ npm run tauri dev
 - Chiffrement des secrets (Windows Credential Manager / DPAPI).
 - Persistance SQLite locale (serveurs, commandes, audit).
 - Exécution réelle UFW/screen/FiveM/DB avec garde-fous renforcés.
+
+## Workflow GitHub pour télécharger le `.exe`
+
+Le workflow est dans `.github/workflows/windows-exe.yml`.
+
+### Cas 1 — Build manuel
+
+1. Va dans **Actions** → **Build Windows EXE**.
+2. Clique **Run workflow**.
+3. Une fois terminé, télécharge l'artifact **hexa-control-windows-exe**.
+4. Tu y trouveras l'installateur `.exe` (NSIS) généré par Tauri.
+
+### Cas 2 — Release automatique sur tag
+
+1. Crée et pousse un tag versionné:
+   ```bash
+   git tag v0.1.0
+   git push origin v0.1.0
+   ```
+2. Le workflow build l'app Windows puis publie automatiquement les fichiers `.exe`/`.msi` dans la **GitHub Release** du tag.
